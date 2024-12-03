@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: task-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/bishal850/manifest.git'  # Replace with your Git repository URL
+    targetRevision: HEAD  # You can specify a branch, tag, or commit hash
+    path: path/to/your/deployment/directory  # Path to the directory containing your deployment.yml
+  destination:
+    server: 'https://kubernetes.default.svc'  # Kubernetes API server URL
+    namespace: default  # Namespace where the app will be deployed
+  syncPolicy:
+    automated:
+      prune: true  # Automatically deletes resources that are no longer defined in the repository
+      selfHeal: true  # Automatically syncs the application if it drifts from the desired state
+
