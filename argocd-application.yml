@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/bishal850/manifest.git'  # Replace with your Git repository URL
     targetRevision: HEAD  # You can specify a branch, tag, or commit hash
-    path: path/to/your/deployment/directory  # Path to the directory containing your deployment.yml
+    path: manifest  # Path to the directory containing your deployment.yml
   destination:
     server: 'https://kubernetes.default.svc'  # Kubernetes API server URL
     namespace: default  # Namespace where the app will be deployed
